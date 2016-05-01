@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="TaskItemBinding">
+
+        <variable
+            name="task"
+            type="com.xm.sample.binding.entity.Task" />
+
+        <variable
+            name="actionHandle"
+            type="com.xm.sample.binding.itemactionhandle.TaskItemActionHandle" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view)-> actionHandle.toDetail(task)}"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{task.complete}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{task.name}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> actionHandle.deleteTask(task)}"
+            android:text="delete" />
+
+    </LinearLayout>
+
+
+</layout>
